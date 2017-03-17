@@ -16,7 +16,6 @@ export default class MovieDetails extends Component {
         this.setState({
           movie: response.data
         });
-        console.log(this.state.movie);
       })
       .catch(error => {
         console.log(error);
@@ -25,6 +24,8 @@ export default class MovieDetails extends Component {
 
   render() {  
     let { movie } = this.state;
+    console.log(this.state.movie);
+    
     return (
       this.state.movie && 
       <main>
