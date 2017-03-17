@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'; 
 import axios from 'axios';
 
 import Movies from './Movies';
@@ -48,7 +47,6 @@ export default class Home extends Component {
   render() {
     return(
       <main>
-        <Link to="/test">Go to Test</Link>
         <h1>HELLO MAIN TACOCAT</h1>
         <form>
           <label>

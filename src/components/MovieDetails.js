@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default class MovieDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: `http://www.omdbapi.com/?i=${this.props.match.params.movie.slice(1)}`,
+      url: `http://www.omdbapi.com/?i=${this.props.match.params.movie}`,
       movie: null
     };
   }
@@ -25,12 +26,14 @@ export default class MovieDetails extends Component {
   render() {  
     let { movie } = this.state;
     console.log(this.state.movie);
-    
+
     return (
       this.state.movie && 
       <main>
-        <h1>{movie.Title}</h1>
+        <h1>{movie.Title} - {movie.Year}</h1>
         <img src={movie.Poster} alt={`Movie Poster for ${movie.Title}`}/>
+        <p>{movie.Plot}</p>
+        <Link to="/">Search for Another Movie</Link>
       </main>
     )
   }
