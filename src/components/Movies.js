@@ -30,7 +30,7 @@ export default class Movies extends Component {
         <section key={movie.imdbID}>
           <h3>{movie.Title} - {movie.Year}</h3>
           <img src={`${movie.Poster}`} alt={`Movie Poster for ${movie.Title}`}></img>          
-          <Link to={`/movie/:${movie.imdbID}`}>testing props passing</Link>
+          <Link to={`/movie/:${movie.imdbID}`}>Learn more about {movie.Title}</Link>
         </section>
       )
     });

@@ -1,26 +1,36 @@
 import React, { Component } from 'react';
-
-// const MovieDetails = props => {
-//   console.log('these are my props');
-//   console.log(props.match.params.movie);
-//   return (
-//     <h1>test</h1>
-//   )
-// };
+import axios from 'axios';
 
 export default class MovieDetails extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      url: `http://www.omdbapi.com/?i=${this.props.match.params.movie.slice(1)}`,
+      movie: null
+    };
   }
 
   componentDidMount() {
-    console.log('MOVIE DETAILS MOUNTED');
+    axios.get(this.state.url)
+      .then(response => {
+        this.setState({
+          movie: response.data
+        });
+        console.log(this.state.movie);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
-  render() {
-    console.log(this.props)
+  render() {  
+    let { movie } = this.state;
     return (
-      <h1>{this.props.match.params.movie}</h1>
+      this.state.movie && 
+      <main>
+        <h1>{movie.Title}</h1>
+        <img src={movie.Poster} alt={`Movie Poster for ${movie.Title}`}/>
+      </main>
     )
   }
 };
