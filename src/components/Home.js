@@ -50,19 +50,24 @@ export default class Home extends Component {
     this.setState({
       searchResult: ''
     });
+    // prevent default behavior
     event.preventDefault();
   }
 
   render() {
     return(
-      <main>
-        <h1>Search for Movies or TV Series!</h1>
-        <form>
-          <label>
-            <input type="text" value={this.state.searchResult} onChange={this.handleSearchChange} />
-          </label>
-          <button onClick={this.handleSearchSubmit}>Search</button>
-        </form>
+      <main className="home-container">
+        <section className="searchbox-container">
+          <header className="header-container">
+            <h1 className="heading">Search for Movies or TV Series!</h1>
+          </header>
+          <form className="searchbar">
+            <label>
+              <input type="text" value={this.state.searchResult} onChange={this.handleSearchChange} className="search-input"/>
+            </label>
+            <button onClick={this.handleSearchSubmit} className="search-button">Search</button>
+          </form>
+        </section>
         {this.state.isFetched && <Movies movies={this.state.movies} />}
         {this.state.fetchFailed && <FailedSearch />}
       </main>

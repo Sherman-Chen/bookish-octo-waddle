@@ -11,16 +11,20 @@ export default class MovieDetails extends Component {
     };
   }
 
-  componentDidMount() {
+  fetchDetails() {
     axios.get(this.state.url)
-      .then(response => {
-        this.setState({
-          movie: response.data
-        });
-      })
-      .catch(error => {
-        console.log(error);
+    .then(response => {
+      this.setState({
+        movie: response.data
       });
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
+  componentDidMount() {
+    this.fetchDetails();
   }
 
   render() {  
@@ -30,7 +34,9 @@ export default class MovieDetails extends Component {
     return (
       this.state.movie && 
       <main>
-        <h1>{movie.Title} - {movie.Year}</h1>
+        <header>
+          <h1 className="heading">{movie.Title} - {movie.Year}</h1>
+        </header>
         <img src={movie.Poster} alt={`Show Poster for ${movie.Title}`}/>
         <p>{movie.Plot}</p>
         <Link to="/">Search for Another Movie</Link>
