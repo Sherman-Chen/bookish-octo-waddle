@@ -5,7 +5,7 @@ import Home from './Home';
 import Details from './Details';
 import NotFound from './NotFound';
 
-const App = () => (
+const AppRouter = () => (
   <Router>
     <div>
       <Switch>
@@ -17,4 +17,4 @@ const App = () => (
   </Router>
 );
 
-export default App;
+export default AppRouter;

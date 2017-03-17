@@ -6,7 +6,7 @@ export default class MovieDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: `http://www.omdbapi.com/?i=${this.props.match.params.movie}`,
+      url: `http://www.omdbapi.com/?i=${this.props.match.params.movie}&plot=full`,
       movie: null
     };
   }

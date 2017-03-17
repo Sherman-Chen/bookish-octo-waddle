@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Movies from './Movies';
+import FailedSearch from './FailedSearch';
 
 export default class Home extends Component {
   constructor() {
@@ -63,7 +64,7 @@ export default class Home extends Component {
           <button onClick={this.handleSearchSubmit}>Search</button>
         </form>
         {this.state.isFetched && <Movies movies={this.state.movies} />}
-        {this.state.fetchFailed && <h1>No Results Found - Please Try Again</h1>}
+        {this.state.fetchFailed && <FailedSearch />}
       </main>
     )
   }
