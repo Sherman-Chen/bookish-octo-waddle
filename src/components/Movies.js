@@ -3,15 +3,6 @@ import { Link } from 'react-router-dom';
 
 export default class Movies extends Component {
   render() {
-    /*
-    Title,
-    imdbID,
-    Poster,
-    Year,
-    Type
-
-    <button onClick={() => {this.handleDetails(movie.imdbID)}}>Details</button>
-    */
 
     let { movies } = this.props;
 
@@ -19,8 +10,10 @@ export default class Movies extends Component {
       return (
         <section key={movie.imdbID}>
           <h3>{movie.Title} - {movie.Year}</h3>
-          <img src={`${movie.Poster}`} alt={`Movie Poster for ${movie.Title}`}></img>          
-          <Link to={`/movie/${movie.imdbID}`}>Learn more about {movie.Title}</Link>
+          <fig>
+            <img src={`${movie.Poster}`} alt={`Show Poster for ${movie.Title}`}></img>          
+          </fig>
+          <p><Link to={`/movie/${movie.imdbID}`}>Learn more about {movie.Title}</Link></p>
         </section>
       )
     });
@@ -31,4 +24,8 @@ export default class Movies extends Component {
       </section>
     )
   }
+};
+
+Movies.propTypes = {
+  movies: React.PropTypes.arrayOf(React.PropTypes.object)
 };
