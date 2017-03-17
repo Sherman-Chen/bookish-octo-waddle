@@ -2,16 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 export default class Movies extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handleDetails = this.handleDetails.bind(this);
-  }
-
-  handleDetails(movieID) {
-    console.log(movieID);
-  }
-
   render() {
     /*
     Title,
