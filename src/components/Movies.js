@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Movies extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ export default class Movies extends Component {
   }
 
   handleDetails(movieID) {
-    console.log('here ' + movieID);
+    console.log(movieID);
   }
 
   render() {
@@ -18,6 +19,8 @@ export default class Movies extends Component {
     Poster,
     Year,
     Type
+
+    <button onClick={() => {this.handleDetails(movie.imdbID)}}>Details</button>
     */
 
     let { movies } = this.props;
@@ -26,8 +29,8 @@ export default class Movies extends Component {
       return (
         <section key={movie.imdbID}>
           <h3>{movie.Title} - {movie.Year}</h3>
-          <img src={`${movie.Poster}`} alt={`Movie Poster for ${movie.Title}`}></img>
-          <button onClick={() => {this.handleDetails(movie.imdbID)}}>Details</button>
+          <img src={`${movie.Poster}`} alt={`Movie Poster for ${movie.Title}`}></img>          
+          <Link to={`/movie/:${movie.imdbID}`}>testing props passing</Link>
         </section>
       )
     });
