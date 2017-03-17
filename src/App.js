@@ -1,11 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-class App extends Component {
-  render() {
-    return (
-      <h1>HELLO SQUIRREL</h1>
-    );
-  }
-}
+const App = () => <h1>TACOCAT</h1>
 
 export default App;
