@@ -6,8 +6,8 @@ import Home from './Home';
 const App = () => (
   <Router>
     <div>
-      <Route path="/" component={Home} />
-      
+      <Route exact path="/" component={Home} />
+      <Route path="/test" render={() => <h1>TESTING LINK </h1>} />
     </div>
   </Router>
 );
