@@ -8,14 +8,25 @@ export default class Home extends Component {
       url: 'http://www.omdbapi.com/?t=',
       searchResult: ''
     };
+    this.handleSearchChange = this.handleSearchChange.bind(this);
+    this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
   }
 
-  handleSearch(event) {
-
+  handleSearchChange(event) {
+    this.setState({
+      searchResult: event.target.value
+    });
   }
 
-  handleSubmit() {
+  handleSearchSubmit(event) {
+
+    console.log(this.state.searchResult);
     
+    // reset search param
+    this.setState({
+      searchResult: ''
+    });
+    event.preventDefault();
   }
 
   render() {
@@ -25,8 +36,9 @@ export default class Home extends Component {
         <h1>HELLO MAIN TACOCAT</h1>
         <form>
           <label>
-            <input type="text"/>
+            <input type="text" value={this.state.searchResult} onChange={this.handleSearchChange} />
           </label>
+          <button onClick={this.handleSearchSubmit}>Search</button>
         </form>
       </main>
     )
