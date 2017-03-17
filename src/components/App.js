@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Home from './Home';
-import MovieDetails from './MovieDetails';
+import Details from './Details';
 import NotFound from './NotFound';
 
 const App = () => (
@@ -10,7 +10,7 @@ const App = () => (
     <div>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/movie/:movie" component={MovieDetails} />
+        <Route path="/movie/:movie" component={Details} />
         <Route component={NotFound} />
       </Switch>
     </div>

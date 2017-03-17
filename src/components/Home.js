@@ -55,7 +55,7 @@ export default class Home extends Component {
   render() {
     return(
       <main>
-        <h1>HELLO MAIN TACOCAT</h1>
+        <h1>Search for Movies or TV Series!</h1>
         <form>
           <label>
             <input type="text" value={this.state.searchResult} onChange={this.handleSearchChange} />
