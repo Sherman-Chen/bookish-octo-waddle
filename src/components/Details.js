@@ -9,6 +9,7 @@ export default class MovieDetails extends Component {
       url: `http://www.omdbapi.com/?i=${this.props.match.params.movie}&plot=full`,
       movie: null
     };
+    this.fetchDetails = this.fetchDetails.bind(this);
   }
 
   fetchDetails() {
